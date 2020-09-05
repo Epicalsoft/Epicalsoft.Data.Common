@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.1.2.0</Version>
+    <Version>1.1.3.0</Version>
     <Authors>Epicalsoft, Alexander Salazar</Authors>
     <Company>Epicalsoft S.A.C.</Company>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
@@ -17,9 +17,9 @@ Epicalsoft.Data.Common.Enumeration
 Epicalsoft.Data.Common.IReadRepository
 Epicalsoft.Data.Common.IUnitOfWork
 Epicalsoft.Data.Common.IWriteRepository
-Epicalsoft.Data.Common.ObservableObject
 Epicalsoft.Data.Common.Listing
-Epicalsoft.Data.Common.ListingItem</Description>
+Epicalsoft.Data.Common.ListingItem
+Epicalsoft.Data.Common.ObservableObject</Description>
     <LangVersion>8.0</LangVersion>
     <PackageProjectUrl>https://github.com/Epicalsoft/Epicalsoft.Data.Common</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -27,7 +27,7 @@ Epicalsoft.Data.Common.ListingItem</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="C:\Users\ADMIN\Desktop\Epicalsoft.png">
+    <None Include="Epicalsoft.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
