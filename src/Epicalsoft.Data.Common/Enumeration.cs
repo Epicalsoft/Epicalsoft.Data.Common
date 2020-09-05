@@ -7,9 +7,9 @@ namespace Epicalsoft.Data.Common
 {
     public abstract class Enumeration : IComparable
     {
-        public string Lang { get; private set; }
-        public string Name { get; private set; }
-        public int Code { get; private set; }
+        public readonly int Code;
+        public readonly string Name;
+        public readonly string Lang;
 
         protected Enumeration(int code, string name, string lang)
         {
