@@ -1,12 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Version>1.0.0.0</Version>
     <Authors>Epicalsoft, Alexander Salazar</Authors>
     <Company>Epicalsoft S.A.C.</Company>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryUrl>https://github.com/Epicalsoft/Epicalsoft.Data.Common</RepositoryUrl>
+    <Description>Provides the base abstract classes and interfaces for working with data.
+
+Commonly Used Types:
+Epicalsoft.Data.Common.Aggregate
+Epicalsoft.Data.Common.Entity
+Epicalsoft.Data.Common.Enumeration
+Epicalsoft.Data.Common.IReadRepository
+Epicalsoft.Data.Common.IUnitOfWork
+Epicalsoft.Data.Common.IWriteRepository
+Epicalsoft.Data.Common.ObservableObject</Description>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
 </Project>
