@@ -9,36 +9,32 @@ namespace Epicalsoft.Data.Common
         {
             var listing = new Listing<T>();
             foreach (var element in enumerable)
-            {
-                var item = new ListingItem<T>(element);
-                item.PropertyChanged += (s, a) => { listing.RaiseItemPropertyChanged(item, a.PropertyName); };
-                listing.Add(item);
-            }
+                listing.Add(element);
             return listing;
         }
 
-        public static Listing<T> ToListing<T, W>(this IEnumerable<T> enumerable, Action<W, T> beforeAdding = null) where W : ListingItem<T>
+        public static Listing<T> ToListing<T, W>(this IEnumerable<T> enumerable, Action<W, T> onAdding = null, Action<W, T> onAdded = null) where W : ListingItem<T>
         {
             var listing = new Listing<T>();
             foreach (var element in enumerable)
             {
                 var item = (W)Activator.CreateInstance(typeof(W), element);
-                beforeAdding?.Invoke(item, element);
-                item.PropertyChanged += (s, a) => { listing.RaiseItemPropertyChanged(item, a.PropertyName); };
+                onAdding?.Invoke(item, element);
                 listing.Add(item);
+                onAdded?.Invoke(item, element);
             }
             return listing;
         }
 
-        public static Z ToListing<T, W, Z>(this IEnumerable<T> enumerable, Action<Z, W, T> beforeAdding = null) where Z : Listing<T> where W : ListingItem<T>
+        public static Z ToListing<T, W, Z>(this IEnumerable<T> enumerable, Action<Z, W, T> onAdding = null, Action<Z, W, T> onAdded = null) where Z : Listing<T> where W : ListingItem<T>
         {
             var listing = Activator.CreateInstance<Z>();
             foreach (var element in enumerable)
             {
                 var item = (W)Activator.CreateInstance(typeof(W), element);
-                beforeAdding?.Invoke(listing, item, element);
-                item.PropertyChanged += (s, a) => { listing.RaiseItemPropertyChanged(item, a.PropertyName); };
+                onAdding?.Invoke(listing, item, element);
                 listing.Add(item);
+                onAdded?.Invoke(listing, item, element);
             }
             return listing;
         }
