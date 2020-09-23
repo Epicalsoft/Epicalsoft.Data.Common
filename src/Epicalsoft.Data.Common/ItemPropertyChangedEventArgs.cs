@@ -2,9 +2,9 @@
 
 namespace Epicalsoft.Data.Common
 {
-    public delegate void ItemPropertyChangedEventHandler<T>(object sender, ItemPropertyChangedEventArgs<T> e);
+    public delegate void ItemPropertyChangedEventHandler<T>(object sender, ItemPropertyChangedEventArgs<T> e) where T : class;
 
-    public class ItemPropertyChangedEventArgs<T> : EventArgs
+    public class ItemPropertyChangedEventArgs<T> : EventArgs where T : class
     {
         public ItemPropertyChangedEventArgs(ListingItem<T> item, string propertyName)
         {

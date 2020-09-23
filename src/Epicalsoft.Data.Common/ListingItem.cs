@@ -1,6 +1,8 @@
-﻿namespace Epicalsoft.Data.Common
+﻿using System;
+
+namespace Epicalsoft.Data.Common
 {
-    public class ListingItem<T> : ObservableObject
+    public class ListingItem<T> : ObservableObject, IEquatable<ListingItem<T>> where T : class
     {
         public T Data { get; }
 
@@ -44,7 +46,35 @@
 
         public ListingItem(T data)
         {
+            if (data is null)
+                throw new ArgumentNullException(nameof(data));
+
             Data = data;
+        }
+
+        public static bool operator ==(ListingItem<T> a, ListingItem<T> b) => a is object && a.Equals(b);
+
+        public static bool operator !=(ListingItem<T> a, ListingItem<T> b) => !(a == b);
+
+        public override bool Equals(object obj) => Equals(obj as ListingItem<T>);
+
+        public bool Equals(ListingItem<T> other)
+        {
+            if (other is null)
+                return false;
+
+            if (ReferenceEquals(this, other))
+                return true;
+
+            if (GetType() != other.GetType())
+                return false;
+
+            return Data.Equals(other.Data);
+        }
+
+        public override int GetHashCode()
+        {
+            return (GetType().ToString() + Data.GetHashCode()).GetHashCode();
         }
     }
 }

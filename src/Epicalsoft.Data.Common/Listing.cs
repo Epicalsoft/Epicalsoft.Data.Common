@@ -4,8 +4,10 @@ using System.Linq;
 
 namespace Epicalsoft.Data.Common
 {
-    public class Listing<T> : ObservableCollection<ListingItem<T>>
+    public class Listing<T> : ObservableCollection<ListingItem<T>> where T : class
     {
+        public string Heading { get; set; }
+
         public event ItemPropertyChangedEventHandler<T> ItemPropertyChanged;
 
         public Listing()
