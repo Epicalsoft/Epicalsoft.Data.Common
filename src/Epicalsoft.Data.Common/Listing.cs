@@ -47,4 +47,9 @@ namespace Epicalsoft.Data.Common
                 Remove(match);
         }
     }
+
+    public class Listing<T, W> : Listing<T> where T : class where W : ListingItem<T>
+    {
+        public new W this[int index] => (W)base[index];
+    }
 }
